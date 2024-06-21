@@ -5,10 +5,19 @@
 # The subclasses are required to override the magic method
 # that makes them sortable
 from dataclasses import dataclass
+from abc import ABC,abstractmethod
 
 @dataclass
-class Asset():
+class Asset(ABC):
     price: float
+
+    @abstractmethod
+    def __str__(self):
+        pass
+    
+    @abstractmethod
+    def __lt__(self,anotherAsset):
+        pass
     
 @dataclass
 class Stock(Asset):
