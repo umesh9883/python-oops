@@ -12,10 +12,6 @@ class Asset(ABC):
     price: float
 
     @abstractmethod
-    def __str__(self):
-        pass
-    
-    @abstractmethod
     def __lt__(self,anotherAsset):
         pass
     
@@ -24,9 +20,6 @@ class Stock(Asset):
     ticker : str
     company: str
 
-    def __str__(self):
-        return f"Ticker :{self.company} --${self.price}"
-    
     def __lt__(self,anotherStock):
         return self.price < anotherStock.price
 
@@ -36,9 +29,6 @@ class Bond(Asset):
     duration:int
     yieldamt:float
 
-    def __str__(self):
-        return f"{self.description}: {self.duration}'yr' : ${self.price} : {self.yieldamt}%"
-    
     def __lt__(self,anotherBond):
         return self.yieldamt < anotherBond.yieldamt
 
